@@ -1,10 +1,8 @@
 var ReactDOM = require('react-dom');
 var React = require('react');
-var ItemsList = require('./components/ItemsList');
-var BikePointsMap = require('./components/BikePointsMap');
+var Main = require('./components/Main');
 
-var login = "firstClient";
-var socket = new WebSocket("ws://localhost:3000/?login=" + login);
+var socket = new WebSocket("ws://localhost:3000");
 
 socket.onmessage = function (event) {
 	var incomingMessage = event.data;
@@ -36,14 +34,9 @@ function parseMessage (serverAnswer) {
             id: bikePointsIDs
 		}
 
-		ReactDOM.render(
-            <ItemsList title={propsNew.title} itemlist={propsNew.items} />,
-            document.getElementById("container")
-		)
-        
         ReactDOM.render(
-            <BikePointsMap coords={propsNew.coords} id={propsNew.id}/>,
-            document.getElementById("map-container")
+            <Main data={propsNew} />,
+            document.getElementById("main")
         )
 		break;
 	}
@@ -57,11 +50,6 @@ const propsDefault = {
 };
 
 ReactDOM.render(
-    <ItemsList title={propsDefault.title} itemlist={propsDefault.items} />,
-    document.getElementById("container")
-)
-
-ReactDOM.render(
-    <BikePointsMap coords={propsDefault.coords} id={propsDefault.id}/>,
-    document.getElementById("map-container")
+    <Main data={propsDefault} />,
+    document.getElementById("main")
 )

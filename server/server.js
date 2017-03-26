@@ -17,9 +17,9 @@ var webSocketServer = new WebSocketServer.Server({
 });
 webSocketServer.on('connection', function (ws) {
 
-	var client = Url.parse(ws.upgradeReq.url, true).query
-	clients[client.login] = ws;
-	console.log("Новое соединение: " + client.login);
+  	var id = Math.random();
+  	clients[id] = ws;
+	console.log("Новое соединение: " + id);
 
 	// Отправка начальных данных
 	request("https://api.tfl.gov.uk/BikePoint" + apiAuth, function (error, response, body) {
@@ -27,30 +27,15 @@ webSocketServer.on('connection', function (ws) {
 			type: "initialList",
 			content: converter.getBikePointsInfo(body),
 		};
-		clients[client.login].send(JSON.stringify(initialInfo));
+		clients[id].send(JSON.stringify(initialInfo));
  	})
 
 	ws.on('message', function (message) {
-
-		var parsedMsg = JSON.parse(message);
-
-		if (parsedMsg.message != undefined) {
-			console.log('Получено сообщение: ' + parsedMsg.message);
-
-			var messageSender;
-			messageSender = Url.parse(ws.upgradeReq.url, true).query.login;
-
-			for (var key in clients) {
-				console.log("Отправляю сообщение: \"" + messageSender + ": " + parsedMsg.message + "\" клиенту " + key);
-				clients[key].send(messageSender + ": " + parsedMsg.message);
-			}
-		}
-
-	});
+});
 
 	ws.on('close', function () {
-		console.log('Соединение закрыто: ' + client.login);
-		delete clients[client.login];
+		console.log('Соединение закрыто: ' + id);
+		delete clients[id];
 	});
 
 });

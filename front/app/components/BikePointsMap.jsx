@@ -16,15 +16,14 @@ class BikePointsMap extends React.Component {
     var position = [this.state.lat, this.state.lng];
     var coords = this.props.coords;
     return (
-      <Map center={position} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        {coords.map(function(point){
-            return <BikePointMarker key={point} position={point} />
-        })}
-      </Map>
+        <div id="map-container">
+            <Map center={position} zoom={this.state.zoom}>
+                <TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'/>
+                {coords.map(function(point){
+                    return <BikePointMarker key={point} position={point} />
+                })}
+            </Map>
+        </div>
     );
   }
 }

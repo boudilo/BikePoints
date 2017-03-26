@@ -4,7 +4,7 @@ var Item = require('./Item');
 class ItemsList extends React.Component {
     render() {
         return(
-            <div id="bikepointslist">
+            <div id="container">
 				<p>{this.props.title}</p>
 				<form name={this.props.title}>
 					<select size="1">
