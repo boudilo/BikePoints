@@ -1,7 +1,6 @@
 var WebSocketServer = new require('ws');
 var http = require('http');
 var Static = require('node-static');
-var Url = require('url');
 var request = require('request');
 var converter = require('./modules/converter.js')
 
@@ -19,7 +18,6 @@ webSocketServer.on('connection', function (ws) {
 
   	var id = Math.random();
   	clients[id] = ws;
-	console.log("Новое соединение: " + id);
 
 	// Отправка начальных данных
 	request("https://api.tfl.gov.uk/BikePoint" + apiAuth, function (error, response, body) {
@@ -34,7 +32,6 @@ webSocketServer.on('connection', function (ws) {
 });
 
 	ws.on('close', function () {
-		console.log('Соединение закрыто: ' + id);
 		delete clients[id];
 	});
 

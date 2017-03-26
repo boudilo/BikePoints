@@ -21570,7 +21570,7 @@
 	            return React.createElement(
 	                'div',
 	                { id: 'app' },
-	                React.createElement(BikePointsMap, { coords: this.props.data.coords, id: this.props.data.id }),
+	                React.createElement(BikePointsMap, { coords: this.props.data.coords }),
 	                React.createElement(ItemsList, { title: this.props.data.title, itemlist: this.props.data.items })
 	            );
 	        }
@@ -44103,7 +44103,7 @@
 	                    React.createElement(
 	                        'span',
 	                        null,
-	                        'YEEEAAAH!!!'
+	                        'Place for Bike Point Info :)'
 	                    )
 	                )
 	            );

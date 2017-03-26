@@ -1,4 +1,4 @@
-// Получение списка всех станций
+// Обработка списка всех станций
 module.exports.getBikePointsInfo = function (answer){
 
 	var list = JSON.parse(answer);

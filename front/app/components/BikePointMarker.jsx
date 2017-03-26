@@ -6,7 +6,7 @@ class BikePointMarker extends React.Component {
 		return (
             <Marker position={this.props.position}>
                 <Popup>
-                    <span>YEEEAAAH!!!</span>
+                    <span>Place for Bike Point Info :)</span>
                 </Popup>
             </Marker>
         )
