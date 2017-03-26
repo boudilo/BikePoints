@@ -1,0 +1,26 @@
+{
+  "name": "fdh",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "node-static": "^0.7.9",
+    "request": "^2.81.0",
+    "url": "^0.11.0",
+    "ws": "^2.2.1"
+  },
+  "babel": {
+    "presets": [
+      "latest",
+      "react",
+      "stage-0"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0"
+  }
+}

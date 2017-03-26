@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li{
+
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+#bikepointslist{
+
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#mapid{
+
+	float: right;
+	height: 180px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
