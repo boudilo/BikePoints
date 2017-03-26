@@ -11,17 +11,20 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li{
 	vertical-align: baseline;
 }
 
-#bikepointslist{
+.leaflet-container {
 
 	float: left;
-	margin-top: 10px;
-	margin-left: 10px;
+    height: 500px;
+    width: 50%;
+	margin-right: 10px;
 }
 
-#mapid{
+#container {
 
-	float: right;
-	height: 180px;
-	margin-top: 10px;
-	margin-right: 10px;
+	margin: 10px;
+}
+
+#map-container{
+
+	margin: 10px;
 }

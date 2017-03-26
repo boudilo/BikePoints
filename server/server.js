@@ -25,7 +25,7 @@ webSocketServer.on('connection', function (ws) {
 	request("https://api.tfl.gov.uk/BikePoint" + apiAuth, function (error, response, body) {
 		var initialInfo = {
 			type: "initialList",
-			content: converter.getBikePoints(body),
+			content: converter.getBikePointsInfo(body),
 		};
 		clients[client.login].send(JSON.stringify(initialInfo));
  	})

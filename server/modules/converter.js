@@ -1,14 +1,23 @@
 // Получение списка всех станций
-module.exports.getBikePoints = function (answer){
+module.exports.getBikePointsInfo = function (answer){
 
 	var list = JSON.parse(answer);
+	var bikePointsInfo = [];
+	var i = 0;
 	for (var key in list) {
-		delete list[key].$type;
+		bikePointsInfo[i] = JSON.stringify({
+			commonName: list[key].commonName,
+			id: list[key].id,
+			coords: [list[key].lat, list[key].lon]
+		});
+		i++;
+/*		delete list[key].$type;
 		delete list[key].placeType;
 		delete list[key].additionalProperties;
 		delete list[key].children;
-		delete list[key].childrenUrls;
+		delete list[key].childrenUrls;*/
 	}
+
 /*	var formatedList = [];
 	var i = 0;
 	for (var key in list) {
@@ -22,5 +31,6 @@ module.exports.getBikePoints = function (answer){
 		i++;
 	}
 	return formatedList;*/
-	return list;
+	bikePointsInfo.sort();
+	return bikePointsInfo;
 }
